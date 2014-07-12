@@ -1,0 +1,10 @@
+{
+  "stats": {
+    "name": "Mort",
+    "strength": 6,
+    "dexterity": 9,
+    "intellect": 7,
+    "isInvincible": false
+  },
+  "heroImage": "/home/nskazki/node.js/interviews/makeYouHero/test/image.png"
+}

@@ -1,0 +1,43 @@
+curl -H "Content-Type: application/json" -d '{"username":"xyz","password":"xyz"}' http://localhost:8000/heroStats
+
+/heroStats
+
+	POST:
+
+		ok:
+
+			curl -i http://localhost:8000/heroStats -H "Content-Type: application/json" -d '{"dexterity":1,"intellect":1,"isInvincible":false,"name":"myHero","strength":1}'
+
+		error:
+
+			curl -i http://localhost:8000/heroStats -H "Content-Type: application/json" -d '{"dexterity":1,"intellect":1,"isInvincible":false,"name":"myHero"}'
+
+			curl -i http://localhost:8000/heroStats -H "Content-Type: application/json" -d '{"dexterity":1,"intellect":"1","isInvincible":false,"name":"myHero"}'
+
+	GET: 
+
+		ok: 
+
+			curl -i http://localhost:8000/heroStats 
+			
+/heroImage
+	
+	POST:
+
+		ok:
+			curl -i http://localhost:8000/heroImage -F "avatar=@./toUploads/image.png"
+
+		error:
+
+			curl -i http://localhost:8000/heroImage -F "avatar=@./toUploads/toBigImage.png"
+			
+			curl -i http://localhost:8000/heroImage -F "field=@./toUploads/image.png"
+
+			curl -i http://localhost:8000/heroImage -F "avatar=@./toUploads/other.txt"
+
+	GET:
+
+		ok:
+
+			curl http://localhost:8000/heroImage -I
+			curl http://localhost:8000/heroImage -o ./downloads/"$(date)".png

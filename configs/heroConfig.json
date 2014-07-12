@@ -1,0 +1,10 @@
+{
+  "heroImage": "/home/nskazki/node.js/interviews/makeYouHero/uploads/7f2d16eb199073d95a693780f3aca482.png",
+  "stats": {
+    "name": "Mort",
+    "strength": 6,
+    "dexterity": 9,
+    "intellect": 7,
+    "isInvincible": false
+  }
+}

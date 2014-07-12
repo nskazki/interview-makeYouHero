@@ -1,0 +1,45 @@
+Тесты удобнее выполнять при помощи вот этой утилиты: https://github.com/jakubroztocil/httpie
+
+/heroStats
+
+	POST:
+
+		ok:
+
+			http localhost:8000/heroStats  dexterity:=1 intellect:=1 isInvincible:=false name="myHero" strength:=1
+
+		error:
+
+			http localhost:8000/heroStats  dexterity:=1 intellect:=1 isInvincible:=false name="myHero"
+
+			http localhost:8000/heroStats  dexterity:=1 intellect:=1 isInvincible:=false name="myHero" strength="1"
+
+	GET: 
+
+		ok: 
+
+			http localhost:8000/heroStats
+
+/heroImage
+	
+	POST:
+
+		ok:
+
+			http -f POST localhost:8000/heroImage avatar@./toUploads/image.png
+
+		error:
+
+			http -f POST localhost:8000/heroImage avatar@./toUploads/toBigImage.png
+
+			http -f POST localhost:8000/heroImage field@./toUploads/image.png
+
+			http -f POST localhost:8000/heroImage field@./toUploads/other.txt
+
+	GET:
+
+		ok:
+
+			http localhost:8000/heroImage
+			http localhost:8000/heroImage  -o ./downloads/"$(date)".png
+			
